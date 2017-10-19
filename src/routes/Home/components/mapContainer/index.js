@@ -7,11 +7,21 @@ import SearchBox from '../searchBox'
 import SearchResults from '../searchResults'
 import Fare from '../fare'
 const { width, height } = Dimensions.get("window")
-export  const MapContainer = ({region,getInputData,toggleSearchResult,getAddressPredictions,resultTypes,predictions,getSelectedAddress,selectedAddress,fare}
+export  const MapContainer = (
+          {
+            region,getInputData,
+            toggleSearchResult,
+            getAddressPredictions,
+            resultTypes,
+            predictions,
+            getSelectedAddress,
+            selectedAddress,
+            fare
+          }
 		) => {
   return(
     <Container>
-      <View> 
+      <View>   
         <MapView
           style={{height: height, width: '100%'}}
           provider={MapView.PROVIDER_GOOGLE}
