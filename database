@@ -1,0 +1,111 @@
+{
+//driversLocation table
+	  "_id":{
+
+	    "oid": "222911002922iwkwwlwww",
+
+	  },
+	  "DriverId": "22202020202pooowowow",
+
+	  "coordinate": {
+	    "type": "point",
+	    "coordinates": [
+	       21.28338,
+	       -122.0033
+	    ]
+	  }
+}
+
+//driver info table
+{
+	"_id": {
+	  "oid": "1220303030k3kkddkdk"
+	},
+
+	"firstName": "cabdiqafaar",
+	"lastName": "sh ibrahim",
+	"userName": "maroodi",
+	"mobilePhone": 122929292922,
+	"homePhone": 10202020220220,
+	"rating": "4.5",
+	"photo": "url//images/driver.gpg",
+
+	"address": {
+	  "streetNumber": 70,
+	  "streetName": "kauri st",
+	  "surbourb": "miramar",
+	  "city": "welly",
+	  "country": "nz",
+	},
+	"vichcle": {
+       make": "toyota",
+	   "modale": "camry",
+	   "year": 2010,
+	   "plateNumber": "ptl432",
+	   "numberOfSeats": 5,
+	   "color": "black"
+	  }
+	
+}
+
+{
+	"_id": {
+	  "oid": "1220303030k3kkddkdk"
+	},
+	
+	"firstName": "anwar",
+	"lastName": "murow",
+	"userName": "maariyow",
+	"mobilePhone": 12292333,
+	"homePhone": 0672020220220,
+	"rating": "4.3",
+	"photo": "url//images/driver.gpg",
+
+	"address": {
+	  "streetNumber": 72,
+	  "streetName": "kauri st",
+	  "surbourb": "miramar",
+	  "city": "welly",
+	  "country": "nz",
+	},
+	"vichcle": {
+       make": "toyota",
+	   "modale": "carolla",
+	   "year": 2014,
+	   "plateNumber": "ggl280",
+	   "numberOfSeats": 5,
+	   "color": "green"
+	  }
+	
+}
+
+{
+	"_id": {
+	  "oid": "1220303030k3kkddkdk"
+	},
+	
+	"firstName": "mukhtaar",
+	"lastName": "sh maxamd",
+	"userName": "muktarow",
+	"mobilePhone": 122929288899,
+	"homePhone": 102900990,
+	"rating": 4.6,
+	"photo": "url//images/driver.gpg",
+
+	"address": {
+	  "streetNumber": 78,
+	  "streetName": "kauri st",
+	  "surbourb": "miramar",
+	  "city": "welly",
+	  "country": "nz",
+	},
+	"vichcle": {
+       make": "toyota",
+	   "modale": "prius",
+	   "year": 2012,
+	   "plateNumber": "ptl4333",
+	   "numberOfSeats": 5,
+	   "color": "white"
+	  }
+	
+}

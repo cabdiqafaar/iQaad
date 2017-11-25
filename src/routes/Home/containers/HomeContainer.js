@@ -8,6 +8,7 @@ import {
 		getSelectedAddress,
 		distanceMatrix,
 		fare
+
 		 } from '../modules/home'
 
  const  mapStateToProps = (state) => ({
@@ -16,7 +17,8 @@ import {
 	resultTypes: state.home.resultTypes,
 	predictions: state.home.predictions || [],
 	distanceMatrix: state.home.distanceMatrix,
-	fare: state.home.fare
+	fare: state.home.fare,
+	bookCar: state.home.bookCar
 
 })
 
@@ -27,7 +29,8 @@ const mapActionCreators = {
 		 getAddressPredictions,
 		 getSelectedAddress,
 		 distanceMatrix,
-		 fare
+		 fare,
+		 bookCar
 	}
 
 export default connect(mapStateToProps,mapActionCreators)(Home);

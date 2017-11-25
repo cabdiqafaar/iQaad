@@ -6,7 +6,7 @@ import { Dimensions } from 'react-native'
 import RNGooglePlaces from 'react-native-google-places'
 import constants from './actionConstants'
 import calculateFare from '../../../utilities/calculateFare'
-
+import firebase from 'fire-base'
 const  { 
 		GET_CURRENT_LOCATION,
 		GET_INPUT,
@@ -17,6 +17,7 @@ const  {
 		FARE,
 		CHANAGE_DESTINATION,
 		CANCEL_ORDER,
+    Book_CAR
 
 	} = constants
 
@@ -24,7 +25,7 @@ const { width, height} = Dimensions.get("window")
 
 const ASPECT_RATIO = width / height
 
-const LATITUDE_DELTA = 0.231
+const LATITUDE_DELTA = 0.0922
 
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
@@ -164,6 +165,7 @@ export function getSelectedAddress(payload) {
     waiting_time: 1000,
     booking_charge: 1000
   }
+
   return (dispatch,store) => {
     RNGooglePlaces.lookUpPlaceByID(payload)
     .then((results) => { 		
@@ -253,6 +255,58 @@ function handleFare(state,action){
   })
 }
 
+export  function BookCar(){
+  return (dispatch, store)=>{
+  const payload = {
+          order:{
+            user:"cabdiqafaar", 
+            pickUp:{
+              address:store().home.selectedAddress.selectedPickUp.pickUp,
+              name:store().home.selectedAddress.selectedPickUp.name,
+              latitude:store().home.selectedAddress.selectedPickUp.latitude,
+              longitude:store().home.selectedAddress.selectedPickUp.longitude
+
+            },
+            dropOff:{
+              address:store().home.selectedAddress.selectedDropOff.pickUp,
+              name:store().home.selectedAddress.selectedDropOff.name,
+              latitude:store().home.selectedAddress.selectedDropOff.latitude,
+              longitude:store().home.selectedAddress.selectedDropOff.longitude
+
+            },
+            fare:store().home.fare,
+            status: 'bending'
+          }
+
+      let database = firebase.database();
+      let ref = database.ref('bookings');
+      let data = order
+
+      if(ref.push(data)){
+        alert(data)
+      }else {
+        alert('some thing went wrong')
+      }
+      .finish(err,res) =>{
+        dispatch({
+          type:BookCar,
+          payload:action.payload
+
+        })
+
+      }
+    }
+  
+  }
+}
+
+function handleBookCar(state, action) {
+   update(state,{
+    type:BookCar,
+    payload:action.payload
+   })
+}
+
 
 const ACTION_HANDLERS = {
   GET_CURRENT_LOCATION:handleGetCurrentLocation,
@@ -261,7 +315,8 @@ const ACTION_HANDLERS = {
   GET_ADDRESS_PREDICTIONS:handleGetAddressPredictions,
   GET_SELECTED_ADDRESS:handleGetSelectedAddress,
   GET_DISTANCE_MATRIX:handleDistanceMatrix,
-  FARE:handleFare
+  FARE:handleFare,
+  BookCar:handleBookCar
 }
 
 export const initialState = {
@@ -277,3 +332,4 @@ export function HomeReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
     return handler ? handler(state,action) : state
 }
+

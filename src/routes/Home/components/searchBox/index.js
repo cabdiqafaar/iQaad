@@ -41,10 +41,10 @@ export const SearchBox = ({getInputData,toggleSearchResult,getAddressPredictions
   return (
     <View style={{padding: 20,width: width, top: 0, position: 'absolute',height: 200}}>
 
-      <View style={{backgroundColor:'transparent',marginBottom: 3, width: '80%'}}>
+      <View style={{backgroundColor:'transparent',marginBottom: 3, width: width}}>
         <Text>Halkee Lagaa Qaadayaa</Text>
-        <InputGroup style={{width: width}}>	
-          <Icon name="search"	size={40} color="#F76114" />
+        <InputGroup style={{width: '90%'}}>	
+          <Icon name="search"	size={40} color="#F76114" style={{marginLeft: -15}}/>
           <Input onFocus={() => toggleSearchResult("pickUp")}
             placeholder="Halkan Kuqor" style={{marginTop: 10,
             borderRadius: 7,opacity: 0.9, backgroundColor: '#fff'}}
@@ -56,8 +56,8 @@ export const SearchBox = ({getInputData,toggleSearchResult,getAddressPredictions
       </View>
       <View style={{backgroundColor:'transparent',width: width}}>
         <Text>Halkee Lagugeynayaa</Text>
-        <InputGroup style={{width: width}}>
-          <Icon name="search"	size={40} color="#F76114"/>	
+        <InputGroup style={{width: '90%'}}>
+          <Icon name="search"	size={40} color="#F76114" style={{marginLeft: -15}}/>	
           <Input onFocus={() => toggleSearchResult("dropOff")}
             placeholder="Halkan Kuqor" style={{marginTop: 10,
             borderRadius: 7,opacity: 0.9, backgroundColor: '#fff',}}
@@ -66,17 +66,7 @@ export const SearchBox = ({getInputData,toggleSearchResult,getAddressPredictions
           />
         </InputGroup>
       </View>
-			
-      <View style={{backgroundColor: 'transparent'}}>
-        <Button block 
-          style={{marginTop: 30,
-          backgroundColor: 'transparent',
-          borderColor: '#000',borderWidth: 2,
-          width: '100%',marginRight: 20}}
-          onMouseEnter={() => orderTaxi.bind(this)}>
-          <Text style={{color: '#000'}}>Dalbo iQaad</Text>
-        </Button>
-     </View>
+	
     </View>
   )
 }

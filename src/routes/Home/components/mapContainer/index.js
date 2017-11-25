@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { StyleSheet, Dimensions } from 'react-native'
 import { Container,View,Text} from 'native-base'
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import MapView from 'react-native-maps'
 //import orderIqaad from '../order_iqaad'
 import SearchBox from '../searchBox'
 import SearchResults from '../searchResults'
@@ -20,10 +20,11 @@ export  const MapContainer = (
           }
 		) => {
   return(
-    <Container>
-      <View>   
+    <Container style={{height: height, width: width}}>
+      <View>
+      
         <MapView
-          style={{height: height, width: '100%'}}
+          style={{height: height, width: width}}
           provider={MapView.PROVIDER_GOOGLE}
           region={region}
 		    >

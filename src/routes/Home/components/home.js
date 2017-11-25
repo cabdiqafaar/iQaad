@@ -7,6 +7,7 @@ import {
 import MapContainer from "./mapContainer"
 import HeaderComponent from '../../../headerComponent'
 import Fare from './fare'
+import BookCar from './BookCar'
 export default class Home extends Component {
 
   componentDidMount() {
@@ -14,16 +15,17 @@ export default class Home extends Component {
   }
   
   render() {
-    const region = {
-        latitude: 37.785834,
-        longitude: -122.406417,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-     } 
+    // const region = {
+    //     latitude:  37.785834,
+    //     longitude: -122.406417,
+    //     latitudeDelta: 0.0922,
+    //     longitudeDelta: 0.0421,
+    //  } 
   	return(
       <Container>
         { this.props.region.longitude && 
-          <MapContainer region={this.props.region} 
+          <MapContainer 
+              region={this.props.region} 
               getInputData={this.props.getInputData}
               toggleSearchResult={this.props.toggleSearchResult}
               getAddressPredictions={this.props.getAddressPredictions}
@@ -31,15 +33,16 @@ export default class Home extends Component {
               getSelectedAddress={this.props.getSelectedAddress}
               selectedAddress={this.props.selectedAddress}
               distanceMatrix={this.props.distanceMatrix}
-              style={{height: 300,width: '97%'}}
+              
           />
 
         }
+        <BookCar onPressAction={() => this.props.bookCar()}/>
+
         {
           this.props.fare && 
           <Fare fare={this.props.fare} />
         }
-
      </Container>
     
     )
